@@ -1,3 +1,5 @@
+//app.js
+
 import { burgerMenuFunc } from './components/burgerMenu.js'
 
 const inputArtist = document.querySelector('#search-for-artist');
