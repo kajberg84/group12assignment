@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupparbete Music API Project</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <!-- Body -->
+  <body>
+    <div class="site-container">
+      <!-- Header Start -->
+      <header class="header-container">
+        <div class="header-wrapper content-wrapper">
+          <div class="logo header-logo">
+            <img src="./images/twelve-tunes-svg-logo.svg" alt="" />
+          </div>
+          <div id="burger-menu" class="mobile-menu">
+            <img src="./images/burgerMenu.svg" alt="" />
+          </div>
+          <!-- Menu with names -->
+          <div id="display-menu" class="display-menu">
+            <i id="remove-menu" class="bi bi-x-circle"></i>
+            <div class="display-menu--content">
+              <div class="display-menu--content-wrapper">
+                <h2>Medlemmar i Studiegrupp 12</h2>
+                <ul>
+                  <li><a href="https://github.com/kajberg84" target="_blank">Kaj Berg</a></li>
+                  <li><a href="https://github.com/merkensten" target="_blank">Mattis Erkensten</a></li>
+                  <li><a href="https://github.com/SenadSC" target="_blank">Senad Catovic</a></li>
+                  <li><a href="https://github.com/senadddd" target="_blank">Senad Velagic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Header end -->
+
+      <!-- Main  -->
+      <main class="main-container">
+        <div class="content-wrapper">
+          <div class="hero">
+            <div class="hero-content">
+              <h1>Search for a song</h1>
+            </div>
+
+            <div class="hero-img">
+              <img src="./images/undraw_Music_re_a2jk.svg" alt="" />
+            </div>
+          </div>
+
+          <!--- Lyrics Search Section --->
+          <div class="lyrics-search">
+            <form id="form">
+              <input
+                type="text"
+                name="find-lyrics-artist"
+                id="search-for-artist"
+                placeholder="Search for an artist"
+              />
+              <input
+                type="text"
+                name="find-lyrics-song"
+                id="search-for-song"
+                placeholder="Search for a song"
+              />
+              <button id="searchBtn" class="btn">Search</button>
+            </form>
+          </div>
+
+          <section class="result lyrics-result" id="result"></section>
+        </div>
+      </main>
+      <!-- Main end -->
+
+      <!-- Footer Start -->
+      <footer class="footer-container">
+        <div class="content-wrapper">
+          <div class="logo footer-logo">
+            <img src="./images/twelve-tunes-svg-logo.svg" alt="" />
+          </div>
+        </div>
+      </footer>
+      <!-- Footer end -->
+    </div>
+    <!-- Site-container end -->
+
+    <!-- JS Script -->
+    <script src="./js/app.js" type="module"></script>
+  </body>
+</html>
