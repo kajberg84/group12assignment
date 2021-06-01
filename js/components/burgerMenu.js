@@ -13,8 +13,6 @@ export const burgerMenuFunc = () => {
 /**
  * Funktion för att sätta display värdet på ett element
  *
- * @param {*} element
- * @param { String } value
  */
 
  function setDisplayValueOnHtmlElement(element, value) {
