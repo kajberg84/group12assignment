@@ -10,12 +10,14 @@ export const burgerMenuFunc = () => {
     const menu = document.querySelector('#display-menu');
     const removeMenuIcon = document.querySelector('#remove-menu');
 
-/**
- * Funktion för att sätta display värdet på ett element
- *
- */
 
- function setDisplayValueOnHtmlElement(element, value) {
+/**
+ * setDisplay
+ *
+ * @param {*} element
+ * @param { String } value
+ */
+function setDisplayValueOnHtmlElement(element, value) {
   element.style.display = value;
 }
     
