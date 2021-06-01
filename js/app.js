@@ -10,6 +10,7 @@ const searchButton = document.querySelector('#result');
 burgerMenuFunc()
 
 
+
 // Det som behöver göras
 // Skapa funktion för fetch
 // Ta hand om informationen från fetchen

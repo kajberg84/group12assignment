@@ -13,12 +13,11 @@ export const burgerMenuFunc = () => {
 /**
  * Funktion för att sätta display värdet på ett element
  *
-//  * 
- * 
  */
-function setDisplayValueOnHtmlElement(element, value) {
-      element.style.display = value;
-    }
+
+ function setDisplayValueOnHtmlElement(element, value) {
+  element.style.display = value;
+}
     
     // Denna eventlyssnare visar menyn vid klick på hamburger-ikonen
     burgerMenu.addEventListener('click', () => {
