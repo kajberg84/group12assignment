@@ -4,7 +4,7 @@
  * Funktion för att visa  hamburgarmenyn
  *
  */
-const burgerMenuFunc = () => {
+export const burgerMenuFunc = () => {
     // Hämta in alla element som behövs för hamburgermenyn
     const burgerMenu = document.querySelector('#burger-menu');
     const menu = document.querySelector('#display-menu');
@@ -14,11 +14,12 @@ const burgerMenuFunc = () => {
  * Funktion för att sätta display värdet på ett element
  *
  * @param {*} element
- * @param {*} value
+ * @param { String } value
  */
-function setDisplayValueOnHtmlElement(element, value) {
-      element.style.display = value;
-    }
+
+ function setDisplayValueOnHtmlElement(element, value) {
+  element.style.display = value;
+}
     
     // Denna eventlyssnare visar menyn vid klick på hamburger-ikonen
     burgerMenu.addEventListener('click', () => {
