@@ -70,11 +70,11 @@ searchButton.addEventListener('click', (e) => {
   const inputArtist = document.querySelector('#search-for-artist');
   const inputSong = document.querySelector('#search-for-song');
 
+  const compatiblieInputArtist = makeInputCompatibleWithLyricsApi(inputArtist)
   const compatiblieInputSong = makeInputCompatibleWithLyricsApi(inputSong);
-  console.log(compatiblieInputSong);
 
   //Build url
-  const URL = `https://private-anon-5704e9ba0a-lyricsovh.apiary-proxy.com/v1/${inputArtist.value}/${compatiblieInputSong}`;
+  const URL = `https://private-anon-5704e9ba0a-lyricsovh.apiary-proxy.com/v1/${compatiblieInputArtist}/${compatiblieInputSong}`;
   console.log(URL);
 
   if (inputArtist.value.length === 0 || inputSong.value.length === 0) {
