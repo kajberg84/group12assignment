@@ -4,15 +4,12 @@ import { burgerMenuFunc } from './components/burgerMenu.js';
 const searchButton = document.querySelector('#searchBtn');
 const songText = document.querySelector('#result');
 
-// https://api.lyrics.ovh/v1/led%20zeppelin/stairway%20to%20heaven
-
 /**
  * Setting textcontent to element.
  *
  * @param {*} text . Lyricstext
  */
 function printOutLyrics(text) {
-  console.log(text);
   songText.textContent = text;
 }
 
@@ -22,7 +19,6 @@ function printOutLyrics(text) {
  * @param {*} data
  */
 async function responseHandler(data) {
-  console.log('url to fetch lyrics from', data.url);
   const response = await fetch(data.url).then((resp) =>
     resp.json().then((text) => text.lyrics)
   );
@@ -36,7 +32,6 @@ async function responseHandler(data) {
  */
 async function fetchSong(url) {
   let response = await fetch(url);
-  console.log('____', response);
   const lyrics = await responseHandler(response);
 
   printOutLyrics(lyrics);
@@ -47,7 +42,8 @@ burgerMenuFunc();
 
 // Funktion för att ändra mellanrum i en input till att ha %20 för mellanrummen
 function makeInputCompatibleWithLyricsApi(input) {
-  const splittedString = input.value.split(' ');
+  const splittedString = input.split(' ');
+  // const splittedString = input.value.split(' ');
 
   let empytArr = [];
 
@@ -57,31 +53,39 @@ function makeInputCompatibleWithLyricsApi(input) {
   }
 
   empytArr.pop();
-
   const finishedString = empytArr.join('');
-
   return finishedString;
 }
 
+
+// Hur jag skulle göra för att ersätta whitspace
+function hurKajSkulleGjortReplacespace(input){
+const replacedString = input.trim().replace(/\s/g, "%20" )
+console.log("kossa:", replacedString)
+}
+
+
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
-
   // Get input values
   const inputArtist = document.querySelector('#search-for-artist');
   const inputSong = document.querySelector('#search-for-song');
+console.log("1", inputArtist)
+console.log("2", inputSong)
 
-  const compatiblieInputArtist = makeInputCompatibleWithLyricsApi(inputArtist)
-  const compatiblieInputSong = makeInputCompatibleWithLyricsApi(inputSong);
+  const compatiblieInputArtist = makeInputCompatibleWithLyricsApi(inputArtist.value)
+  const compatiblieInputSong = makeInputCompatibleWithLyricsApi(inputSong.value);
+  console.log("3", compatiblieInputArtist)
+  console.log("4", compatiblieInputSong)
 
+  //kortare syntax för att ta bort space och ta bort space i slutet på mening
+  hurKajSkulleGjortReplacespace(inputSong.value)
   //Build url
   const URL = `https://private-anon-5704e9ba0a-lyricsovh.apiary-proxy.com/v1/${compatiblieInputArtist}/${compatiblieInputSong}`;
-  console.log(URL);
 
   if (inputArtist.value.length === 0 || inputSong.value.length === 0) {
     songText.textContent = 'Fill out both fields';
-    //fixa en funktion som rensar gamla textcontent error då man börjar skriva i fältet igen.
   } else {
-    console.log('vi är i else ');
     fetchSong(URL);
   }
 });
