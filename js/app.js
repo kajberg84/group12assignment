@@ -14,32 +14,20 @@ function printOutLyrics(text) {
 }
 
 /**
- * Handling info from response.
- *
- * @param {*} data
- */
-async function responseHandler(data) {
-  const response = await fetch(data.url).then((resp) =>
-    resp.json().then((text) => text.lyrics)
-  );
-  return response;
-}
+  * Fetching info from url.
+  * Refactoring jsondata.
+  *
+  * @param {*} artist
+  * @param {*} song
+  */
+ async function fetchSong (artist, song) {
+  const URL = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
-/**
- * Fetching info from url.
- *
- * @param { String } url
- */
-async function fetchSong(url) {
-try {
-  let response = await fetch(url);
-  let lyrics = await responseHandler(response);
+  const searchResult = await fetch(URL);
+  const data = await searchResult.json();
 
-  printOutLyrics(lyrics);
-} catch (error) {
-  console.log(error)
-  songText.textContent = "Could not find song";
-}
+  const lyricsSong = data.lyrics.replace(/(\r\n|\r|\n)/g, ".");
+  printOutLyrics(lyricsSong);
 }
 
 //  Creating hamburger and appending it.
@@ -70,12 +58,9 @@ searchButton.addEventListener("click", (e) => {
     inputSong.value
   );
 
-  // Build url
-  const URL = `https://api.lyrics.ovh/v1/${compatiblieInputArtist}/${compatiblieInputSong}`;
-
   if (inputArtist.value.length === 0 || inputSong.value.length === 0) {
     songText.textContent = "Fill out both fields";
   } else {
-    fetchSong(URL);
+    fetchSong(compatiblieInputArtist, compatiblieInputSong);
   }
 });
