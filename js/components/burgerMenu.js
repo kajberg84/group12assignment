@@ -10,7 +10,6 @@ export const burgerMenuFunc = () => {
     const menu = document.querySelector('#display-menu');
     const removeMenuIcon = document.querySelector('#remove-menu');
 
-
 /**
  * setDisplay
  *

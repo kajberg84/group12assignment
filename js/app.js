@@ -30,11 +30,10 @@ function printOutLyrics(text) {
   printOutLyrics(lyricsSong);
 }
 
-//  Creating hamburger and appending it.
 burgerMenuFunc();
 
 /**
- * Remove whitespaces and replacing space with %20
+ * Remove whitespaces and replacing space.
  *
  * @param { string } input - url
  * @return { string }  - url
