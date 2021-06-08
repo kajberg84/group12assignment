@@ -21,13 +21,16 @@ function printOutLyrics(text) {
   * @param {*} song
   */
  async function fetchSong (artist, song) {
-  const URL = `https://api.lyrics.ovh/v1/${artist}/${song}`;
-
-  const searchResult = await fetch(URL);
-  const data = await searchResult.json();
-
-  const lyricsSong = data.lyrics.replace(/(\r\n|\r|\n)/g, ".");
-  printOutLyrics(lyricsSong);
+   try {
+     const URL = `https://api.lyrics.ovh/v1/${artist}/${song}`;   
+     const searchResult = await fetch(URL);
+     const data = await searchResult.json();   
+     const lyricsSong = data.lyrics.replace(/(\r\n|\r|\n)/g, ".");
+     printOutLyrics(lyricsSong);
+   } catch (error) {
+     console.log(error)
+     console.log("Could not get lyrics")
+   }
 }
 
 burgerMenuFunc();
